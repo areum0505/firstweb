@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>끝말잇기</title>
+		<script type="text/javascript">
+			var body = document.body;
+			var word = document.createElement('div');
+			word.textContent = '시작';
+			document.body.append(word);
+			var form = document.createElement('form');
+			document.body.append(form);
+			var input = document.createElement('input');
+			form.append(input);
+			var button = document.createElement('button');
+			form.append(button);
+			var result = document.createElement('div');
+			document.body.append(result);
+
+			form.addEventListener('submit', function callback (ivent) {
+				ivent.preventDefault();
+				if (word.textContent[word.textContent.length - 1] === input.value[0]) {
+					word.textContent = input.value;
+					input.value = '';
+					input.focus();
+				} else {
+					alert('졌습니다.');
+					result.textContent = '졌습니다.';
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<h1>끝말잇기</h1>
+	</body>
+</html>
